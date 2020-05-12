@@ -21,6 +21,12 @@ connection.once('open', () => {
   console.log('MongoDB database connection established successfully');
 });
 
+const usersRouter = require('./routes/users');
+const musicRouter = require('./routes/music');
+
+app.use('/users', usersRouter);
+app.use('/music', musicRouter);
+
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
 });
